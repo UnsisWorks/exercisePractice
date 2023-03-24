@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 
 import algoritmos.CreateComponent;
 
-public class Exercise_2  extends JFrame implements ActionListener{
+public class Exercise_2 extends JFrame implements ActionListener {
 
 	private JPanel panel;
 	private JTextField txtName;
@@ -41,7 +41,7 @@ public class Exercise_2  extends JFrame implements ActionListener{
 		button.addActionListener(this);
 		exit = CreateComponent.createButton(150, 150, 100, 25, "salir");
 		exit.addActionListener(this);
-		label = CreateComponent.createLabel(150, 20, 210, 35, "");
+		label = CreateComponent.createLabel(150, 20, 210, 35, "", 24);
 
 		panel.add(txtName);
 		panel.add(button);

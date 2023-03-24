@@ -13,23 +13,23 @@ import javax.swing.JTextField;
 
 import algoritmos.CreateComponent;
 
-public class Exercise_4 extends JFrame implements ActionListener {
+public class Exercise_6 extends JFrame implements ActionListener  {
 
 	// Create components 
 	private JPanel panel;
 	private JButton exit;
 	private JLabel label;
-	private JLabel labF;
-	private JLabel labC;
+	private JLabel labKh;
+	private JLabel labMs;
 	private MainMenu menu;
-	private JButton comvert;
-	private JTextField txtCenti;
-	private JTextField txtFahre;
+	private JButton convert;
+	private JTextField txtKh;
+	private JTextField txtMs;
 	
-	public Exercise_4(MainMenu menu) {
+	public Exercise_6(MainMenu menu) {
 		// Set properties to window
 		initComponents();
-		this.setTitle("Ejercicio 2");
+		this.setTitle("Ejercicio 6");
 		this.setSize(300, 400);
 		this.setVisible(true);
 		this.setResizable(false);
@@ -42,23 +42,23 @@ public class Exercise_4 extends JFrame implements ActionListener {
 	public void initComponents() {
 		panel = new JPanel(new FlowLayout(MAXIMIZED_VERT, 30, 10));
 
-		txtCenti = CreateComponent.createTextField(100, 50, 210, 30);
-		txtFahre = CreateComponent.createTextField(100, 50, 210, 30);
-		comvert = CreateComponent.createButton(150, 100, 100, 25, "Continuar");
-		comvert.addActionListener(this);
+		txtKh = CreateComponent.createTextField(100, 50, 210, 30);
+		txtMs = CreateComponent.createTextField(100, 50, 210, 30);
+		convert = CreateComponent.createButton(150, 100, 100, 25, "Continuar");
+		convert.addActionListener(this);
 		exit = CreateComponent.createButton(150, 150, 100, 25, "salir");
 		exit.addActionListener(this);
-		label = CreateComponent.createLabel(150, 20, 210, 35, "Centigrados - Fahrenheit", 20);
+		label = CreateComponent.createLabel(150, 20, 210, 35, "Km/h - M/s", 24);
 
-		labC = CreateComponent.createLabel(1, 1, 100, 30, "Centigrados", 22);
-		labF = CreateComponent.createLabel(1, 1, 100, 30, "Fahrenheit", 22);
+		labKh = CreateComponent.createLabel(1, 1, 100, 30, "Kilometros/Hora", 18);
+		labMs = CreateComponent.createLabel(1, 1, 100, 30, "Metros/Segundo", 18);
 		
 		panel.add(label);
-		panel.add(labC);
-		panel.add(txtCenti);
-		panel.add(labF);
-		panel.add(txtFahre);
-		panel.add(comvert);
+		panel.add(labKh);
+		panel.add(txtKh);
+		panel.add(labMs);
+		panel.add(txtMs);
+		panel.add(convert);
 		panel.add(exit);
 		
 		this.add(panel);
@@ -67,40 +67,42 @@ public class Exercise_4 extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource() == comvert) {
+		if(e.getSource() == convert) {
 
 			// get inputs
-			String centi = txtCenti.getText().trim();
-			String fahre = txtFahre.getText().trim();
+			String kilometro = txtKh.getText().trim();
+			String metros = txtMs.getText().trim();
 
-			float intCenti = 0;
-			float intfahre = 0;
+			float fltKilo = 0;
+			float fltMetro = 0;
 			
 			// String voids
-			if(centi.equals("") && fahre.equals("")) {
+			if(kilometro.equals("") && metros.equals("")) {
 				JOptionPane.showMessageDialog(null, "Debe llenar un campo");
 				
-			// centi void
-			} else if(centi.equals("")) {
+			// kilometro void
+			} else if(kilometro.equals("")) {
 				
 				try {
-					intfahre = Float.parseFloat(fahre);					
-					intCenti = (float) ((intfahre - 32) / 1.8000);
-					txtCenti.setText(String.valueOf(intCenti));
+					fltMetro = Float.parseFloat(metros);					
+					fltKilo = (float) (fltMetro * 3600)/1000;
+					txtKh.setText(String.valueOf(fltKilo));
 					
 				} catch (Exception e2) {
 					// TODO: handle exception
 					JOptionPane.showMessageDialog(null, "Debe ingresar unicamente numeros");
 				}
 				
-			// fahre void
-			} else if(fahre.equals("")) {
+			// metros void
+			} else if(metros.equals("")) {
 				
 				try {
-					intCenti = Float.parseFloat(centi);
+					fltKilo = Float.parseFloat(kilometro);
 					// Convert and show request
-					intfahre = (float) ((intCenti * 1.8000) + 32);
-					txtFahre.setText(String.valueOf(intfahre));
+					fltMetro = (fltKilo * (5/18));
+					System.out.println(fltKilo);
+					System.out.println((fltKilo * (5/18)));
+					txtMs.setText(String.valueOf(fltMetro));
 					
 				} catch (Exception e2) {
 					// TODO: handle exception
@@ -116,5 +118,4 @@ public class Exercise_4 extends JFrame implements ActionListener {
 			menu.setVisible(true);
 		}
 	}
-
 }

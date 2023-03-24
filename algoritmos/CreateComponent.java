@@ -35,9 +35,28 @@ public class CreateComponent {
 	 * @param txt text for label
 	 * @return
 	 */
-	public static JLabel createLabel(int x, int y, int width, int height, String txt) {
+	public static JLabel createLabel(int x, int y, int width, int height, String txt, int sizeLetter) {
 		JLabel label = new JLabel(txt);
-		label.setFont(new Font("Areal", Font.BOLD, 24));
+		label.setFont(new Font("Areal", Font.BOLD, sizeLetter));
+		label.setBounds(x, y, width, height);
+		
+		return label;
+	}
+	
+	/**
+	 * 
+	 * @param x
+	 * @param y
+	 * @param width
+	 * @param height
+	 * @param txt
+	 * @param sizeLetter
+	 * @param style
+	 * @return
+	 */
+	public static JLabel createLabel(int x, int y, int width, int height, String txt, int sizeLetter, int style) {
+		JLabel label = new JLabel(txt);
+		label.setFont(new Font("Areal", style, sizeLetter));
 		label.setBounds(x, y, width, height);
 		
 		return label;

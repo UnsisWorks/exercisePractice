@@ -73,12 +73,50 @@ public class MainMenu extends JFrame implements ActionListener {
 			System.out.println("Ejercicio " + eve);
 			this.dispose();
 			new Exercise_2(this).setVisible(true);
-			;
 			break;
+			
 		case 4:
+			this.dispose();
+			new Exercise_4(this);
+			break;
+			
+		case 6:
+			this.dispose();
+			new Exercise_6(this);
+			break;
+			
+		case 8:
+			this.dispose();
+			new Exercise_8(this);
+			break;
+			
+		case 10:
+			this.dispose();
+			new Exercise_10(this);
+			break;
+			
+		case 12:
+			this.dispose();
+			new Exercise_8(this);
+			break;
+			
+		case 14:
+			this.dispose();
+			new Exercise_8(this);
+			break;
+			
+		case 16:
+			this.dispose();
+			new Exercise_8(this);
+			break;
+			
+		case 17:
+			this.dispose();
+			new Exercise_8(this);
 			break;
 		default:
-			throw new IllegalArgumentException("Unexpected value: " + eve);
+//			throw new IllegalArgumentException("Unexpected value: " + eve);
+			System.err.println("No iniciado");
 		}
 
 	}
