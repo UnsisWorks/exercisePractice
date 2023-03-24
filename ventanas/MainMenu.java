@@ -97,12 +97,12 @@ public class MainMenu extends JFrame implements ActionListener {
 			
 		case 12:
 			this.dispose();
-			new Exercise_8(this);
+			new Exercise_12(this);
 			break;
 			
 		case 14:
 			this.dispose();
-			new Exercise_8(this);
+			new Exercise_14(this);
 			break;
 			
 		case 16:

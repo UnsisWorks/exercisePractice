@@ -1,6 +1,7 @@
 package ventanas;
 
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,16 +15,14 @@ import javax.swing.JTextField;
 import algoritmos.CreateComponent;
 
 public class Exercise_8 extends JFrame implements ActionListener {
-	// Create components 
+		// Create components 
 		private JPanel panel;
 		private JButton exit;
 		private JLabel label;
-		private JLabel labKh;
-		private JLabel labMs;
+		private JLabel labResponse;
 		private MainMenu menu;
-		private JButton convert;
-		private JTextField txtKh;
-		private JTextField txtMs;
+		private JButton btnCalc;
+		private JTextField txtRadio;
 		
 		public Exercise_8(MainMenu menu) {
 			// Set properties to window
@@ -39,26 +38,22 @@ public class Exercise_8 extends JFrame implements ActionListener {
 		
 		// Init components and add to window 
 		public void initComponents() {
-			panel = new JPanel(new FlowLayout(MAXIMIZED_VERT, 30, 10));
+			panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 10));
 
-			txtKh = CreateComponent.createTextField(100, 50, 210, 30);
-			txtMs = CreateComponent.createTextField(100, 50, 210, 30);
-			convert = CreateComponent.createButton(150, 100, 100, 25, "Continuar");
-			convert.addActionListener(this);
+			txtRadio = CreateComponent.createTextField(100, 50, 210, 30);
+			btnCalc = CreateComponent.createButton(150, 100, 100, 25, "Continuar");
+			btnCalc.addActionListener(this);
 			exit = CreateComponent.createButton(150, 150, 100, 25, "salir");
 			exit.addActionListener(this);
-			label = CreateComponent.createLabel(150, 20, 210, 35, "Volumen de una esfera", 24);
+			label = CreateComponent.createLabel(150, 20, 210, 35, "Volumen de una esfera", 23);
 
-			labKh = CreateComponent.createLabel(1, 1, 100, 30, "datos", 18);
-			labMs = CreateComponent.createLabel(1, 1, 100, 30, "datos", 18);
+			labResponse = CreateComponent.createLabel(1, 1, 100, 30, "", 18, Font.ITALIC);
 			
 			panel.add(label);
-			panel.add(labKh);
-			panel.add(txtKh);
-			panel.add(labMs);
-			panel.add(txtMs);
-			panel.add(convert);
+			panel.add(txtRadio);
+			panel.add(btnCalc);
 			panel.add(exit);
+			panel.add(labResponse);
 			
 			this.add(panel);
 		}
@@ -66,26 +61,24 @@ public class Exercise_8 extends JFrame implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			if(e.getSource() == convert) {
+			if(e.getSource() == btnCalc) {
 
 				// get inputs
-				String kilometro = txtKh.getText().trim();
-				String metros = txtMs.getText().trim();
+				String radio = txtRadio.getText().trim();
 
-				float fltKilo = 0;
-				float fltMetro = 0;
-				
-				// String voids
-				if(kilometro.equals("") && metros.equals("")) {
-					JOptionPane.showMessageDialog(null, "Debe llenar un campo");
+				double fltRadio = 0;
+				double fltVol = 3/4;
 					
-				// kilometro void
-				} else if(kilometro.equals("")) {
+				// radio void
+				 if(!radio.equals("")) {
 					
 					try {
-						fltMetro = Float.parseFloat(metros);					
-						fltKilo = (float) (fltMetro * 3600)/1000;
-						txtKh.setText(String.valueOf(fltKilo));
+						// Calculate volume and show
+						fltRadio = Double.parseDouble(radio);
+						System.out.println(radio + " -- " + fltRadio);
+						fltVol *= (3.1416 * fltRadio);
+						System.out.println(fltVol);
+						labResponse.setText("Volumen: " + String.valueOf(fltVol));
 						
 					} catch (Exception e2) {
 						// TODO: handle exception
@@ -93,23 +86,8 @@ public class Exercise_8 extends JFrame implements ActionListener {
 					}
 					
 				// metros void
-				} else if(metros.equals("")) {
-					
-					try {
-						fltKilo = Float.parseFloat(kilometro);
-						System.out.println(fltKilo);
-						// Convert and show request
-						fltMetro = (float) (fltKilo * (5/18));
-						System.out.println("comvert: " + fltMetro);
-						txtMs.setText(String.valueOf(fltMetro));
-						
-					} catch (Exception e2) {
-						// TODO: handle exception
-						JOptionPane.showMessageDialog(null, "Debe ingresar unicamente numeros");
-					}
-				// Compare if the values equals
 				} else {
-					JOptionPane.showMessageDialog(null, "Solo debe llenar un campo");
+					JOptionPane.showMessageDialog(null, "Debe llenar el campo");
 				}
 				
 			} else if(e.getSource() == exit) {
