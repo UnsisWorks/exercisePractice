@@ -1,3 +1,11 @@
+
+/******************************************
+ * Nombre: Galicia Cordova Elietzer Jared *
+ * Creacion: 24/03/2023                   *
+ * modificado: 24/03/2023                 *
+ * Descripcion: Ejercicio 51 del pdf      *
+ ******************************************/
+
 package ventanas;
 
 import java.awt.Color;
@@ -107,12 +115,17 @@ public class MainMenu extends JFrame implements ActionListener {
 			
 		case 16:
 			this.dispose();
-			new Exercise_8(this);
+			new Exercise_16(this);
 			break;
 			
-		case 17:
+		case 18:
 			this.dispose();
-			new Exercise_8(this);
+			new Exercise_18(this);
+			break;
+			
+		case 20:
+			this.dispose();
+			new Exercise_20(this);
 			break;
 		default:
 //			throw new IllegalArgumentException("Unexpected value: " + eve);

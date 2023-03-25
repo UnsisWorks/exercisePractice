@@ -67,7 +67,7 @@ public class Exercise_8 extends JFrame implements ActionListener {
 				String radio = txtRadio.getText().trim();
 
 				double fltRadio = 0;
-				double fltVol = 3/4;
+				double fltVol = 0;
 					
 				// radio void
 				 if(!radio.equals("")) {
@@ -76,7 +76,7 @@ public class Exercise_8 extends JFrame implements ActionListener {
 						// Calculate volume and show
 						fltRadio = Double.parseDouble(radio);
 						System.out.println(radio + " -- " + fltRadio);
-						fltVol *= (3.1416 * fltRadio);
+						fltVol *= (4 * 3.1416 * Math.pow(fltRadio, 3) / 3);
 						System.out.println(fltVol);
 						labResponse.setText("Volumen: " + String.valueOf(fltVol));
 						

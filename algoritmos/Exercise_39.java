@@ -5,6 +5,8 @@
  * Descripcion: Ejercicio 39 del pdf      *
  ******************************************/
 
+package algoritmos;
+
 import java.util.Scanner;
 
 public class Exercise_39 {

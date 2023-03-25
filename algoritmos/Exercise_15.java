@@ -1,4 +1,13 @@
 
+/******************************************
+ * Nombre: Galicia Cordova Elietzer Jared *
+ * Creacion: 24/03/2023                   *
+ * modificado: 24/03/2023                 *
+ * Descripcion: Ejercicio 51 del pdf      *
+ ******************************************/
+
+package algoritmos;
+
 import java.util.Scanner;
 public class Exercise_15 {
     

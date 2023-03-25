@@ -6,6 +6,8 @@
  * Descripcion: Ejercicio 51 del pdf      *
  ******************************************/
 
+package algoritmos;
+
 import java.util.Scanner;
 
 public class Exercise_51 {

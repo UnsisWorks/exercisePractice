@@ -5,7 +5,9 @@
  * Descripcion: Ejercicio 47 del pdf      *
  ******************************************/
 
- import java.util.Scanner;
+package algoritmos;
+
+import java.util.Scanner;
 
  public class Exercise_47 {
      

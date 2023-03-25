@@ -22,7 +22,7 @@ import javax.swing.JTextField;
 
 import algoritmos.CreateComponent;
 
-public class Exercise_18 extends JFrame implements ActionListener {
+public class Exercise_20 extends JFrame implements ActionListener {
 
 	// Create components 
 	private JPanel panel;
@@ -31,10 +31,11 @@ public class Exercise_18 extends JFrame implements ActionListener {
 	private JLabel labNumber;
 	private JLabel labResult;
 	private MainMenu menu;
-	private JButton comvert;
-	private JTextField txtButton;
+	private JButton convert;
+	private JTextField txtNumber1;
+	private JTextField txtNumber2;
 	
-	public Exercise_18(MainMenu menu) {
+	public Exercise_20(MainMenu menu) {
 		// Set properties to window
 		initComponents();
 		this.setTitle("Ejercicio 18");
@@ -50,21 +51,23 @@ public class Exercise_18 extends JFrame implements ActionListener {
 	public void initComponents() {
 		panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 30, 10));
 
-		txtButton = CreateComponent.createTextField(100, 50, 210, 30);
-		comvert = CreateComponent.createButton(150, 100, 100, 25, "Comprobar");
-		comvert.addActionListener(this);
+		txtNumber1 = CreateComponent.createTextField(100, 50, 210, 30);
+		txtNumber2 = CreateComponent.createTextField(100, 50, 210, 30);
+		convert = CreateComponent.createButton(150, 100, 100, 25, "Comprobar");
+		convert.addActionListener(this);
 		exit = CreateComponent.createButton(150, 150, 100, 25, "salir");
 		exit.addActionListener(this);
-		label = CreateComponent.createLabel(150, 20, 210, 35, "Numero positivo o negativo", 20);
+		label = CreateComponent.createLabel(150, 20, 210, 35, "Numeros iguales", 20);
 
 		labResult = CreateComponent.createLabel(1, 1, 100, 30, "", 22);
-		labNumber = CreateComponent.createLabel(1, 1, 100, 30, "Numero", 18, Font.ITALIC);
+		labNumber = CreateComponent.createLabel(1, 1, 100, 30, "Numeros", 18, Font.ITALIC);
 		
 		panel.add(label);
 		panel.add(labResult);
-		panel.add(txtButton);
 		panel.add(labNumber);
-		panel.add(comvert);
+		panel.add(txtNumber1);
+		panel.add(txtNumber2);
+		panel.add(convert);
 		panel.add(exit);
 		
 		this.add(panel);
@@ -73,30 +76,26 @@ public class Exercise_18 extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource() == comvert) {
+		if(e.getSource() == convert) {
 
 			// get inputs
-			String centi = txtButton.getText().trim();
-			
-			float intCenti = 0;
+			String number1 = txtNumber1.getText().trim();
+			String number2 = txtNumber2.getText().trim();
 
 			// String voids
-			if(!centi.equals("")) {
+			if(!number1.equals("") && !number2.equals("")) {
 				try {
-					intCenti = Float.parseFloat(centi);
 
-					if (intCenti > 0) {
-						labResult.setText("Numero positivo");
-					} else if (intCenti == 0) {
-						labResult.setText("Es cero");
+					if (number1.equals(number2)) {
+						labResult.setText("Son iguales");
 					} else {
-						labResult.setText("Numero negativo");
+						labResult.setText("Son diferentes");
 					}
 				} catch (Exception e2) {
 					// TODO: handle exception
 					JOptionPane.showMessageDialog(null, "Solo debe ingresar numeros");
 				}
-			// centi void
+			// number1 void
 			} else {
 				JOptionPane.showMessageDialog(null, "Solo debe llenar un campo");
 			}
