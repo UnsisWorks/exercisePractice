@@ -2,7 +2,7 @@
 /******************************************
  * Nombre: Galicia Cordova Elietzer Jared *
  * Creacion: 24/03/2023                   *
- * modificado: 24/03/2023                 *
+ * modificado: 23/03/2023                 *
  * Descripcion: Ejercicio 51 del pdf      *
  ******************************************/
 
